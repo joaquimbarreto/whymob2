@@ -18,8 +18,8 @@ const addCloud = cloud => {
 };
 
 // use the above function multiple times
-const addClouds = coulds => {
-	coulds.forEach(cloud => addCloud(cloud));
+const addClouds = clouds => {
+	clouds.forEach(cloud => addCloud(cloud));
 };
 
 const addSystemUser = user => {
@@ -31,7 +31,13 @@ const addSystemUser = user => {
 const getClouds = () =>
 	fetch(
 		"http://blueticketdb.westeurope.cloudapp.azure.com:8005/ws/api/client/cloudservice",
-		{ mode: "no-cors" }
+		{
+			mode: "no-cors",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			}
+		}
 	).then(resp => resp.json());
 
 // GET all System User from the server
