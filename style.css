@@ -5,9 +5,18 @@ img {
     border-width: 1px;
 }
 
+.container {
+  display: flex;  
+}
+
 .main-image {
   width: 300px
 } 
+
+.account-details {
+  width: 400px;
+  /* float: right */
+}
 
 li {
   display: inline-block

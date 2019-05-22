@@ -26,6 +26,7 @@ const addSystemUser = user => {
 
 const addAccountDetails = account => {
 	const accountItem = document.createElement("div");
+	accountItem.className = "account-details";
 	accountItem.innerHTML = `
 		<p><strong>ID</strong>: ${account.result[0].Id} </p>
 		<p><strong>Name:</strong> ${account.result[0].Name} </p>
