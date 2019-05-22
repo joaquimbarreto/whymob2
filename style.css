@@ -15,7 +15,10 @@ img {
 
 .account-details {
   width: 400px;
-  /* float: right */
+}
+
+.system-user-details {
+  width: 400px
 }
 
 li {

@@ -26,6 +26,8 @@ const addSystemUser = user => {
 
 const addAccountDetails = account => {
 	const accountItem = document.createElement("div");
+	const systemUserBtn = document.createElement("button");
+	systemUserBtn.innerHTML = "System User";
 	accountItem.className = "account-details";
 	accountItem.innerHTML = `
 		<p><strong>ID</strong>: ${account.result[0].Id} </p>
@@ -34,6 +36,10 @@ const addAccountDetails = account => {
 		<p><strong>Date Created:</strong> ${account.result[0].CreateDate} </p>
 	`;
 	detailsEl.appendChild(accountItem);
+	detailsEl.appendChild(systemUserBtn);
+	systemUserBtn.addEventListener("click", () => {
+		window.location.href = "user.html";
+	});
 };
 
 // GET all Service from the server
