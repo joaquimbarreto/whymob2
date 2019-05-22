@@ -25,6 +25,7 @@ const addClouds = clouds => {
 const addSystemUser = user => {
 	const systemUserImg = document.createElement("img");
 	systemUserImg.src = user.CloudLogo;
+	systemUserEl.appendChild(systemUserImg);
 };
 
 // GET all Service from the server
