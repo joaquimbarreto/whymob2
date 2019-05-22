@@ -1,0 +1,42 @@
+const cloudListEl = document.querySelector("#cloud-list");
+
+// add a single cloud to the page
+const addCloud = cloud => {
+	const cloudItem = document.createElement("li");
+	//   const agentButton = document.createElement("button");
+	cloudItem.className = "cloud-item";
+	cloudItem.id = cloud.id;
+	cloudItem.innerHTML = `
+    <h3>${cloud.Name}</h3>
+    <img src="${cloud.CloudLogo}" />
+  `;
+
+	cloudListEl.appendChild(cloudItem);
+};
+
+// use the above function multiple times
+const addClouds = coulds => {
+	coulds.forEach(cloud => addCloud(cloud));
+};
+
+// GET all Service from the server
+const getClouds = () =>
+	fetch(
+		"http://blueticketdb.westeurope.cloudapp.azure.com:8005/ws/api/client/cloudservice",
+		{ method: "GET", mode: "cors" }
+	).then(resp => resp.json());
+
+// GET all System User from the server
+const getSystemUser = () =>
+	fetch(
+		"https://blueticketdb.westeurope.cloudapp.azure.com:8005/ws/api/client/systemuser"
+	).then(resp => resp.json());
+
+// GET all Account from the server
+const getAccount = () =>
+	fetch(
+		`https://blueticketdb.westeurope.cloudapp.azure.com:8005/ws/api/client/accoint/${accountId}`
+	).then(resp => resp.json());
+
+// GET all the clouds, *then* put them on the page upon load
+getClouds().then(addClouds);
