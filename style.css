@@ -1,7 +1,13 @@
 img {
-    width: 300px;
-    border-radius: 50%
-  }
+    width: 100px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.main-image {
+  width: 300px
+} 
 
 li {
   display: inline-block
