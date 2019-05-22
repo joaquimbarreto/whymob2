@@ -10,7 +10,6 @@ const addCloud = cloud => {
 	cloudItem.className = "cloud-item";
 	cloudItem.id = cloud.id;
 	cloudItem.innerHTML = `
-    <h3>${cloud.Name}</h3>
     <img src="${cloud.CloudLogo}" />
   `;
 
@@ -19,7 +18,8 @@ const addCloud = cloud => {
 
 // use the above function multiple times
 const addClouds = clouds => {
-	clouds.forEach(cloud => addCloud(cloud));
+	// debugger;
+	clouds.result.forEach(cloud => addCloud(cloud));
 };
 
 const addSystemUser = user => {
@@ -31,14 +31,7 @@ const addSystemUser = user => {
 // GET all Service from the server
 const getClouds = () =>
 	fetch(
-		"http://blueticketdb.westeurope.cloudapp.azure.com:8005/ws/api/client/cloudservice",
-		{
-			mode: "no-cors",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			}
-		}
+		"http://blueticketdb.westeurope.cloudapp.azure.com:8005/ws/api/client/cloudservice"
 	).then(resp => resp.json());
 
 // GET all System User from the server
@@ -50,7 +43,7 @@ const getSystemUser = () =>
 // GET all Account from the server
 const getAccount = () =>
 	fetch(
-		`http://blueticketdb.westeurope.cloudapp.azure.com:8005/ws/api/client/accoint/${accountId}`
+		`http://blueticketdb.westeurope.cloudapp.azure.com:8005/ws/api/client/account/${accountId}`
 	).then(resp => resp.json());
 
 // GET all the clouds, *then* put them on the page upon load
